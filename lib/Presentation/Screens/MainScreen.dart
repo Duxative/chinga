@@ -15,7 +15,7 @@ class _MainScreenState extends State<MainScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final views = [const Business(),const Inventory(),const Invoices()];
+    final views = [const Inventory(), const Invoices(), const Business()];
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue[900],
@@ -32,7 +32,7 @@ class _MainScreenState extends State<MainScreen> {
         index: selectedIndex,
         children: views,
       ),
-      bottomNavigationBar: BottomNavigationBar(
+      bottomNavigationBar:  BottomNavigationBar(
           currentIndex: selectedIndex,
           onTap: (newIndex){
             setState(() {
@@ -40,9 +40,8 @@ class _MainScreenState extends State<MainScreen> {
             });
           },
           iconSize: 30,
-          items: [
+          items: const [
             BottomNavigationBarItem(
-
                 icon: Icon(Icons.inventory),
                 activeIcon: Icon(Icons.inventory),
                 label: 'Inventario'
@@ -58,6 +57,26 @@ class _MainScreenState extends State<MainScreen> {
                 label: 'Empresa'
             ),
           ]
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          switch(selectedIndex){
+            case 0:
+                Navigator.pop(context);
+                Navigator.pushNamed(context, '/newInvoice');
+              break;
+            case 1:
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/newInvoice');
+              break;
+            case 2:
+              Navigator.pop(context);
+              Navigator.pushNamed(context, '/newInvoice');
+              break;
+          }
+        },
+        child: Icon(Icons.add),
+        backgroundColor: Colors.blue[100],
       ),
     );
   }

@@ -1,3 +1,4 @@
+import 'package:chinga/Presentation/Screens/CreateInvoice.dart';
 import 'package:flutter/material.dart';
 import 'package:chinga/Presentation/Screens/MainScreen.dart';
 
@@ -13,6 +14,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         useMaterial3: true,
       ),
+      routes: {
+        '/newInvoice':(context) => CreateInvoice()
+      },
       home: MainScreen(),
     );
   }
